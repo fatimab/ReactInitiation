@@ -4,11 +4,22 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 export default class Create extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.state = {personName: '', personAge:0}
+    }
+
+    onSubmit = ( (event) => {
+    event.preventDefault()
+    console.log(event)
+  })
+
     render(){
         return(
             <div>
                 <h1>Create a new person</h1>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <label>Add person name: </label>
                     <input type="text" name="personName"/>
                     <label>Add person's age: </label>
